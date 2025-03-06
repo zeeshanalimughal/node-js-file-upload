@@ -4,7 +4,7 @@ const uploadImage = async (req, res) => {
       return res.status(400).json({ message: "No file uploaded" });
     }
 
-     const fileUrl = `${req.protocol}://${req.get("host")}/uploads/${
+     const fileUrl = `${req.protocol}://${req.get("host")}/api/uploads/${
       req.file.filename
     }`;
     res.status(200).json({

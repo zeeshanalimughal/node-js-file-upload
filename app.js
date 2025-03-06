@@ -2,14 +2,14 @@ require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const {dbConnect}= require("./src/config/db")
-
+const path = require("node:path")
 const app = express();
 
 
 // Middleware
 app.use(cors());
 app.use(express.json()); // Parse JSON requests
-
+app.use("/api/uploads", express.static(path.join(__dirname, "uploads")))
 // Routes
 app.use("/api/auth", require("./src/routes/authRoutes"));
 app.use("/api/media", require("./src/routes/uploadRoutes"));

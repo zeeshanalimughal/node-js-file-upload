@@ -131,7 +131,7 @@ const deleteVehicle = async (req, res) => {
     if (vehiclesUsingType) {
       return res.status(400).json({
         message:
-          "Cannot delete Vehicle Type as it is assigned to one or more vehicles.",
+          "Cannot delete Vehicle as it is assigned to one or more vehicles.",
       });
     }
     const vehicle = await Vehicle.findById(id);
